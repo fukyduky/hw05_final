@@ -255,7 +255,7 @@ class FollowViewsTests(TestCase):
             username='test_follower'
         )
         self.user_followed = User.objects.create_user(
-            username='test_following'
+            username='test_followed'
         )
         self.post = Post.objects.create(
             author=self.user_followed,
