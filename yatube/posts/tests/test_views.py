@@ -220,7 +220,7 @@ class PaginatorViewsTest(TestCase):
                 len(response.context.get('page_obj').object_list), 3)
 
 
-class CacheTests(TestCase):
+class CacheViewsTests(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -247,7 +247,7 @@ class CacheTests(TestCase):
         self.assertNotEqual(initial_state.content, changed_state_2.content)
 
 
-class FollowTests(TestCase):
+class FollowViewsTests(TestCase):
     def setUp(self):
         self.client_auth_follower = Client()
         self.client_auth_followed = Client()
@@ -283,7 +283,7 @@ class FollowTests(TestCase):
                                               self.user_followed.username}))
         self.assertEqual(Follow.objects.all().count(), 0)
 
-    def test_subscription_feed(self):
+    def test_follow_feed(self):
         """запись появится в подписках"""
         Follow.objects.create(user=self.user_follower,
                               author=self.user_followed)
