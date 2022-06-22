@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from posts.models import Post, Group
 from django.contrib.auth import get_user_model
 from http import HTTPStatus
+from django.core.cache import cache
 
 User = get_user_model()
 
@@ -30,6 +31,7 @@ class PostURLTests(TestCase):
         self.authorized_client.force_login(self.user)
         self.authorized_client_author = Client()
         self.authorized_client_author.force_login(self.author)
+        cache.clear()
 
     def test_url_exists_at_desired_location(self):
         """Страницы, доступные всем"""

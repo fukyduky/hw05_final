@@ -44,6 +44,7 @@ class PostViewsTests(TestCase):
         self.user = User.objects.create_user(username='test_user')
         self.authorized_client = Client()
         self.authorized_client.force_login(self.author)
+        cache.clear()
 
     def test_pages_uses_correct_template(self):
         """view-функция использует соответствующий шаблон."""
