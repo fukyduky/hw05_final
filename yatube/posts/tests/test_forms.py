@@ -106,9 +106,7 @@ class PostCreateFormTests(TestCase):
                 image__isnull=False,
                 group=self.group.id
             ).exists())
-        # post_1 = Post.objects.get(id=self.group.id)
-        # author_1 = User.objects.get(username='test_author')
-        # group_1 = Group.objects.get(title='Заголовок')
-        # self.assertEqual(post_1.text, 'Запись с картинкой')
-        # self.assertEqual(author_1.username, 'test_author')
-        # self.assertEqual(group_1.title, 'Заголовок')
+        # закомментирован был первый вариант теста,
+        # в котором так и не получилось
+        # увидеть картинку, в итоге забыл удалить коммент,
+        # этот удалю в следующем пуше
